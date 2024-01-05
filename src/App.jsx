@@ -1,9 +1,10 @@
-import { useState } from 'react';
 import LoginPage from './components/LoginPage';
 import HomePage from './components/HomePage';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
+
 function App() {
-  // START == AuthContext = Authenticate Context
-  const [isLogin, setIsLogin] = useState(false);
+  const { isLogin } = useContext(AuthContext);
 
   // Challenge :  FN login() แล้วแชร์ให้แทน setIsLogin
   // Challenge :  FN logout() แล้วแชร์ให้แทน setIsLogin
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div className='flex justify-center items-center h-screen'>
-      {!isLogin ? <LoginPage setIsLogin={setIsLogin} /> : <HomePage setIsLogin={setIsLogin} />}
+      {!isLogin ? <LoginPage /> : <HomePage />}
     </div>
   );
 }

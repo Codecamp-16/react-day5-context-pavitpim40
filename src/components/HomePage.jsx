@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
-function HomePage({ setIsLogin }) {
+function HomePage() {
+  const { setIsLogin } = useContext(AuthContext);
   return (
     <div className='text-center'>
       <h1 className='text-2xl font-bold mb-2'>Welcome to Codecamp</h1>
