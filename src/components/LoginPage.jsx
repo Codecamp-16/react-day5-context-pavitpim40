@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 function LoginPage() {
-  const { setIsLogin } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,15 +16,9 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform authentication here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // if user name is codecamp@gmail.com and password == 123456
-    if (email === 'codecamp@gmail.com' && password === '123456') {
-      setIsLogin(true);
-    } else {
-      setIsLogin(false);
-    }
+    // START
+    login(email, password);
+    // END
 
     // Reset form after submission
     setEmail('');
