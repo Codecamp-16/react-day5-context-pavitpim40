@@ -1,5 +1,5 @@
 // S-1 : สร้าง Context
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 
 export const TodoContext = createContext();
 
@@ -27,3 +27,11 @@ export default function TodoContextProvider({ children }) {
     <TodoContext.Provider value={{ todos, addTodo, deleteTodo }}>{children}</TodoContext.Provider>
   );
 }
+
+// Customhook
+export const useTodos = () => {
+  // const sharedObj = useContext(TodoContext);
+  // return sharedObj;
+
+  return useContext(TodoContext);
+};

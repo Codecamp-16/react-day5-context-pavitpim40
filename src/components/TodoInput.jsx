@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
-import { TodoContext } from '../context/TodoContext';
+import { useState } from 'react';
+import { useTodos } from '../context/TodoContext';
 function TodoInput() {
-  const { addTodo } = useContext(TodoContext);
+  const { addTodo } = useTodos();
   const [todoText, setTodoText] = useState('');
 
   const handleAddTodo = () => {

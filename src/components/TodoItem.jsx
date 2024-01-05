@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { TodoContext } from '../context/TodoContext';
+import React from 'react';
+import { useTodos } from '../context/TodoContext';
 
 function TodoItem({ todo, index }) {
-  const { deleteTodo } = useContext(TodoContext);
+  const { deleteTodo } = useTodos();
   return (
     <li className='mb-2 flex justify-between'>
       <span className='text-black'>{todo}</span>
