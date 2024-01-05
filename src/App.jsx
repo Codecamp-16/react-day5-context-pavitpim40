@@ -1,25 +1,33 @@
 // Lv1 Component
 function App() {
-  const data = 42;
   return (
     <div className='flex justify-center mt-4'>
-      <Parent data={data} />
+      <Parent />
     </div>
   );
 }
 
 // Lv2 Component
-function Parent({ data }) {
-  return <Child data={data} />;
+function Parent() {
+  return <Child />;
 }
 
 // Lv3 Component
-function Child({ data }) {
-  return <GrandChild data={data} />;
+function Child() {
+  return <GrandChild />;
 }
 
 // Lv4 Component
-function GrandChild({ data }) {
+// Step-4 => Consumer : React.useContext(MyContext);
+import React, { useContext } from 'react';
+import { MyContext } from './main';
+
+function GrandChild() {
+  // const sharedObj = React.useContext(MyContext);
+  // console.log(sharedObj);
+
+  const { data } = useContext(MyContext);
+
   return <h1 className='text-2xl italic font-bold'>{data}</h1>;
 }
 
