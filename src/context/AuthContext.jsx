@@ -22,15 +22,18 @@ export default function AuthContextProvider({ children }) {
       .then((data) => {
         console.log(data);
         setUser(data.user);
+        localStorage.setItem('token', data.accessToken);
       })
       .catch((err) => {
         console.log(err);
         setUser(null);
+        localStorage.removeItem('token');
       });
   };
   // logout
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('token');
   };
   return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>;
 }
