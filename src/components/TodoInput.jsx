@@ -1,14 +1,12 @@
-import { useState } from 'react';
-function TodoInput({ setTodos }) {
-  // todoText,setTodoText,addTodo
+import { useContext, useState } from 'react';
+import { TodoContext } from '../context/TodoContext';
+function TodoInput() {
+  const { addTodo } = useContext(TodoContext);
   const [todoText, setTodoText] = useState('');
 
-  const addTodo = () => {
-    if (todoText.trim() !== '') {
-      // setTodos([...todos, todoText]);
-      setTodos((cur) => [...cur, todoText]);
-      setTodoText('');
-    }
+  const handleAddTodo = () => {
+    addTodo(todoText);
+    setTodoText('');
   };
   return (
     <div className='mb-4 flex'>
@@ -19,7 +17,7 @@ function TodoInput({ setTodos }) {
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
       />
-      <button className='bg-blue-500 text-white px-4 py-2 rounded' onClick={addTodo}>
+      <button className='bg-blue-500 text-white px-4 py-2 rounded' onClick={handleAddTodo}>
         Add
       </button>
     </div>
