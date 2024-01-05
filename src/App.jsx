@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 
 function App() {
-  const { isLogin } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   // Challenge :  FN login() แล้วแชร์ให้แทน setIsLogin
   // Challenge :  FN logout() แล้วแชร์ให้แทน setIsLogin
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className='flex justify-center items-center h-screen'>
-      {!isLogin ? <LoginPage /> : <HomePage />}
+      {!user ? <LoginPage /> : <HomePage />}
     </div>
   );
 }
