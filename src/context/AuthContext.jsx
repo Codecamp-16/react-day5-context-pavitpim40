@@ -25,7 +25,8 @@ export default function AuthContextProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchUserByToken();
+    let token = localStorage.getItem('token');
+    if (token) fetchUserByToken();
   }, []);
 
   // login
