@@ -20,7 +20,7 @@ function Child() {
 // Lv4 Component
 // Step-4 => Consumer : React.useContext(MyContext);
 import React, { useContext } from 'react';
-import { MyContext } from './main';
+import { MyContext } from './context/MyContext';
 
 function GrandChild() {
   // const sharedObj = React.useContext(MyContext);
