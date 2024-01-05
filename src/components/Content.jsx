@@ -1,16 +1,15 @@
 import React from 'react';
 import SubContent from './SubContent';
+import { useContent } from '../context/ContentContext';
+import { useSubContent } from '../context/SubContentContext';
 
 const Content = ({
-  isShowContent,
-  content,
-  toggleContentColor,
-  suggestion,
-
-  isShowSubContent,
-  toggleSubContentColor,
-  subContent,
+  content, //*
+  suggestion, //*
+  subContent, //*
 }) => {
+  const { isShowContent, toggleContentColor } = useContent();
+  const { isShowSubContent, toggleSubContentColor } = useSubContent();
   return (
     <>
       {isShowContent && (

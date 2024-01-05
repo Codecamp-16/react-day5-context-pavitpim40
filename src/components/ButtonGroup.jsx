@@ -1,11 +1,10 @@
 import React from 'react';
+import { useContent } from '../context/ContentContext';
+import { useSubContent } from '../context/SubContentContext';
 
-function ButtonGroup({
-  handleToggleShowContent,
-  handleToggleContentColor,
-  handleToggleShowSubContent,
-  handleToggleSubContentColor,
-}) {
+function ButtonGroup() {
+  const { handleToggleShowContent, handleToggleContentColor } = useContent();
+  const { handleToggleShowSubContent, handleToggleSubContentColor } = useSubContent();
   return (
     <div className='flex gap-2'>
       <button
